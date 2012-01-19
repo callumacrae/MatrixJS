@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre id="output"></pre>
+	<button onclick="fill(Matrix.add(a, b))">A + B</button>
+	<button onclick="fill(Matrix.subtract(a, b))">A - B</button>
+	<button onclick="fill(Matrix.multiply(a, b))">A * B</button>
+	<button onclick="fill(Matrix.multiply(a, 2))">A * 2</button>
+	<script src="../lib/matrix.js"></script>
+	<script>
+		function fill(content) {
+			document.getElementById('output').innerHTML = content;
+		}
+	</script>
+</body>
+</html>
