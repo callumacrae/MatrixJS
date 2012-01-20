@@ -1,9 +1,9 @@
 MatrixJS
 ============
 
-MatrixJS is a [matrix](http://en.wikipedia.org/wiki/Matrix_(mathematics) library for JavaScript and Node.js.
+MatrixJS is a [matrix](http://en.wikipedia.org/wiki/Matrix_%28mathematics%29) library for JavaScript and Node.js.
 
-**It doesn't work yet, the below code will not work.**
+**I haven't yet finished developing this library, the below code will not work.**
 
 
 ### Example
@@ -11,14 +11,16 @@ MatrixJS is a [matrix](http://en.wikipedia.org/wiki/Matrix_(mathematics) library
 
 ``` javascript
 var a = new Matrix([
-	[1, 3],
-	[3, 4]
+	[1,   3,  7],
+	[3,   4, -3],
+	[3.5, 2, 22]
 ]);
 
-var b = new Matrix("\
-	5 	-1	\
-	2	3.5	\
-");
+var b = new Matrix([
+	"1    3   7",
+	"3    4  -3",
+	"3.5  2  22"
+]);
 
 // add together:
 var c = Matrix.add(a, b);
@@ -28,7 +30,7 @@ var c = a.add(b);
 // multiply together
 var d = Matrix.multiply(a, b);
 // or:
-var d = a.multby(b);
+var d = a.multBy(b);
 
 
 console.log(d.toString()); // will format it nicely
