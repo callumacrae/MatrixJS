@@ -2,23 +2,97 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+	<style>
+		input {
+			width: 30px;
+		}
+
+		table {
+			float: left;
+			padding-right: 100px;
+		}
+
+		#contain {
+			overflow: auto;
+		}
+	</style>
 </head>
 <body>
-	<pre id="output"></pre>
+	<div id="contain">
+		<form id="a">
+			<table>
+				<tr>
+					<td colspan="3"><strong>Matrix a:</strong> <button type="submit">Update</button></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="a1" value="1" /></td>
+					<td><input type="text" name="a2" value="2" /></td>
+					<td><input type="text" name="a3" value="3" /></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="a4" value="4" /></td>
+					<td><input type="text" name="a5" value="5" /></td>
+					<td><input type="text" name="a6" value="6" /></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="a7" value="7" /></td>
+					<td><input type="text" name="a8" value="8" /></td>
+					<td><input type="text" name="a9" value="9" /></td>
+				</tr>
+			</table>
+		</form>
+		<form id="b">
+			<table>
+				<tr>
+					<td colspan="3"><strong>Matrix b:</strong> <button type="submit">Update</button></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="b1" value="10" /></td>
+					<td><input type="text" name="b2" value="11" /></td>
+					<td><input type="text" name="b3" value="12" /></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="b4" value="13" /></td>
+					<td><input type="text" name="b5" value="14" /></td>
+					<td><input type="text" name="b6" value="15" /></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="b7" value="16" /></td>
+					<td><input type="text" name="b8" value="17" /></td>
+					<td><input type="text" name="b9" value="18" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 	<button onclick="fill(Matrix.add(a, b))">A + B</button>
 	<button onclick="fill(Matrix.subtract(a, b))">A - B</button>
 	<button onclick="fill(Matrix.multiply(a, b))">A * B</button>
 	<button onclick="fill(Matrix.multiply(a, 2))">A * 2</button>
+	<pre id="output"></pre>
 	<script src="../lib/matrix.js"></script>
 	<script>
-		var a = new Matrix([
-			[1, 2],
-			[3, 4]
-		]);
-		var b = new Matrix([
-			[5, 6],
-			[7, 8]
-		]);
+		var a, b;
+
+		function parseForm() {
+			var els = Array.prototype.slice.call(this.elements, 1),
+				end = [
+					[els[0].value, els[1].value, els[2].value],
+					[els[3].value, els[4].value, els[5].value],
+					[els[6].value, els[7].value, els[8].value]
+				];
+			return new Matrix(end);
+		}
+
+		document.getElementById('a').addEventListener('submit', function(e) {
+			a = parseForm.call(this);
+			console.log(a);
+			e.preventDefault();
+		});
+
+		document.getElementById('b').addEventListener('submit', function(e) {
+			b = parseForm.call(this);
+			e.preventDefault();
+		});
 
 		function fill(content) {
 			document.getElementById('output').innerHTML = content;
