@@ -93,6 +93,10 @@
 			e.preventDefault();
 		});
 
+		// Call them by default:
+		a = parseForm.call(document.getElementById('a'));
+		b = parseForm.call(document.getElementById('b'));
+
 		function fill(content) {
 			document.getElementById('output').innerHTML = content;
 		}
