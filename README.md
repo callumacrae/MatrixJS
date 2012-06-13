@@ -4,7 +4,7 @@ MatrixJS
 MatrixJS is a [matrix](http://en.wikipedia.org/wiki/Matrix_%28mathematics%29) library for JavaScript and Node.js.
 
 Documentation hasn't been written yet.
-
+A
 
 ### Example
 
